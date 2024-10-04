@@ -6,6 +6,7 @@ using namespace std;
 class Solution{
     public:
     long long findMinDiff(vector<long long> chocolates, long long n, long long m){
+    //code
     int ans=INT_MAX;
     sort(chocolates.begin(),chocolates.end());
     for(int i=0;i<=n-m;i++){
@@ -13,7 +14,7 @@ class Solution{
         ans=min(ans,diff);
     }
      return ans;
-    }
+    }   
 };
 
 //{ Driver Code Starts.
