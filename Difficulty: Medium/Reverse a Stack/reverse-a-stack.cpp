@@ -9,32 +9,33 @@ using namespace std;
 //User function Template for C++
 
 class Solution{
-
+    
 private:
-    void reverseStack(stack<int>&st,int val){
+    void insertAtBottom(int n ,stack<int>&st){
         if(st.empty()){
-            st.push(val);
+            st.push(n);
             return ;
         }
         
-        int ch=st.top();
+        int num = st.top();
         st.pop();
-        reverseStack(st,val);
-        st.push(ch);
-    }    
-    
-    
+        insertAtBottom(n,st);
+        
+        st.push(num);
+    }  
     
 public:
-    void Reverse(stack<int> &st){
-       if(st.empty()){
-           return ;
-       }
-       int ch= st.top();
-       st.pop();
-       Reverse(st);
-       reverseStack(st,ch);
+    void Reverse(stack<int> &St){
+        if(St.empty()){
+            return ;
+        }
         
+        int n = St.top();
+        St.pop();
+        
+        Reverse(St);
+        
+        insertAtBottom(n,St);
     }
 };
 
@@ -67,6 +68,8 @@ int main(){
         }
         
         cout<<endl;
-    }
+    
+cout << "~" << "\n";
+}
 }
 // } Driver Code Ends
