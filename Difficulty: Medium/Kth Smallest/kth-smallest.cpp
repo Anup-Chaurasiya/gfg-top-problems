@@ -13,20 +13,21 @@ class Solution {
     // arr : given array
     // k : find kth smallest element and return using this function
     int kthSmallest(vector<int> &arr, int k) {
-        int n=arr.size();
-        priority_queue<int>q;
+        priority_queue<int>pq;
         
         for(int i=0;i<k;i++){
-            q.push(arr[i]);
+           pq.push(arr[i]);
         }
         
-        for(int i=k;i<n;i++){
-            if(arr[i]<q.top()){
-                q.pop();
-                q.push(arr[i]);
+        for(int i=k;i<arr.size();i++){
+            if(arr[i]<pq.top()){
+                pq.pop();
+                pq.push(arr[i]);
             }
         }
-        return q.top();
+        
+        return pq.top();
+        
     }
 };
 
@@ -56,7 +57,7 @@ int main() {
         k = crr[0];
         int n = arr.size();
         Solution ob;
-        cout << ob.kthSmallest(arr, k) << endl;
+        cout << ob.kthSmallest(arr, k) << endl << "~\n";
     }
     return 0;
 }
