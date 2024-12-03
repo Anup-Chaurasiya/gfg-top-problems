@@ -7,40 +7,36 @@ using namespace std;
 class Solution {
   public:
     // Function to return the minimum cost of connecting the ropes.
-    long long minCost(vector<long long>& arr) {
-        int size=arr.size();
-        long long ans=0;
+    int minCost(vector<int>& arr) {
         
-        priority_queue<long long,vector<long long>,greater<long long>>q;
+        priority_queue<int,vector<int>,greater<int>>q;
         
         for(auto i : arr){
             q.push(i);
         }
-        
+        int ans=0;
         while(q.size()!=1){
-            int a=q.top();
+             int a=q.top();
             q.pop();
             int b=q.top();
             q.pop();
             ans +=a+b;
             q.push(a+b);
         }
-        
         return ans;
     }
 };
 
-
 //{ Driver Code Starts.
 
 int main() {
-    long long t;
+    int t;
     cin >> t;
     cin.ignore();
     while (t--) {
         string input;
-        long long num;
-        vector<long long> a;
+        int num;
+        vector<int> a;
 
         getline(cin, input);
         stringstream s2(input);
@@ -49,6 +45,8 @@ int main() {
         }
         Solution ob;
         cout << ob.minCost(a) << endl;
+        cout << "~"
+             << "\n";
     }
     return 0;
 }
